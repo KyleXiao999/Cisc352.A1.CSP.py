@@ -1,7 +1,7 @@
 # =============================
-# Student Names:
-# Group ID:
-# Date:
+# Student Names: Chang Xu, Kyle Xiao, Allen Zhang
+# Group ID: 111
+# Date: 29 January 2023
 # =============================
 # CISC 352 - W23
 # propagators.py
@@ -92,7 +92,26 @@ def prop_FC(csp, newVar=None):
        only one uninstantiated variable. Remember to keep
        track of all pruned variable,value pairs and return '''
     #IMPLEMENT
-    pass
+    prune = []              #To track any variable value pairs that are pruned (removed) during the forward check.
+    if not newVar:          #If newVar is none, call csp.get_all_cons() to assign cons
+        #cons: a list of constraints
+        cons = csp.get_all_cons()
+    else:                   #newVar has been provided
+        cons = csp.get_cons_with_var(newVar)
+
+    for c in cons:
+        if c.get_n_unasgn() == 1:      #check if num of unassigned variables in current constraints is == 1
+            vari = c.get_unasgn_vars()[0]     #variale is assigned the unassigned variable value
+
+            for d in vari.cur_domain():
+                if not c.has_support(vari, d):
+                    vari.prune_value(d)          #if not, current value removed from the domain of the variable
+                    prune.append((vari, d))      #added to the pruned list
+            if vari.cur_domain_size() == 0:      #check current domain size
+                return False, prune
+
+    return True, prune
+
 
 
 def prop_GAC(csp, newVar=None):
