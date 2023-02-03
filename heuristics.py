@@ -1,7 +1,7 @@
 # =============================
-# Student Names:
-# Group ID:
-# Date:
+# Student Names: Xu Chang, Kyle Xiao, Allen Zhang
+# Group ID: 111
+# Date: 2023 02 03
 # =============================
 # CISC 352 - W23
 # heuristics.py
