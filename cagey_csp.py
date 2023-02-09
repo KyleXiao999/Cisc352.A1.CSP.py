@@ -1,7 +1,7 @@
 # =============================
-# Student Names:
-# Group ID:
-# Date:
+# Student Names: Wenchu Xiao, Chang Xu, Xiaoran Zhang
+# Group ID: 111
+# Date: 2023 01 29
 # =============================
 # CISC 352 - W23
 # cagey_csp.py
